@@ -1,0 +1,27 @@
+﻿<div class="container mt-5" style="max-width: 450px;">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center"><h4>User Authentication</h4></div>
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            }
+            @if (TempData["RegistrationMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["RegistrationMessage"]</div>
+            }
+            <form asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input name="username" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Log In</button>
+            </form>
+            <div class="mt-3 text-center"><a asp-action="Register">Need an account? Register here</a></div>
+        </div>
+    </div>
+</div>
